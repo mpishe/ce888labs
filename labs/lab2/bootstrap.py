@@ -4,9 +4,21 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 
-
 def boostrap(sample, sample_size, iterations):
 	# <---INSERT YOUR CODE HERE--->
+	means = list()
+	samples = np.empty([iterations, sample_size])
+	data_mean = np.mean(sample)
+
+	for iteration in range(iterations):
+		new_sample = a[iteration, :]
+		means.append(np.mean(new_sample))
+
+	Omeans = sorted(means)
+
+	lower = np.percentile(Omeans, ((1 - 95) / 2) * 100)
+	upper = np.percentile(Omeans, (95 + ((1 - 95) / 2)) * 100)
+
 	return data_mean, lower, upper
 
 
